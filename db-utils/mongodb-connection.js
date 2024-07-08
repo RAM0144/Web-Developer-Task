@@ -1,11 +1,15 @@
 import { MongoClient } from "mongodb";
 
-const dbUrl = "localhost:27017";
 
 const dbName = "task";
 
-const localUrl = `mongodb://${dbUrl}`;
-const client = new MongoClient(localUrl);
+const dbUsr = "ram9944";
+const dbPassword = "kh9ggADaiKL6Fxpt";
+const dbCluster = "cluster0.pmnrvh9.mongodb.net"
+
+const cloudUrl = `mongodb+srv://${dbUsr}:${dbPassword}@${dbCluster}/?retryWrites=true&w=majority&appName=Cluster0`
+
+const client = new MongoClient(cloudUrl);
 
 const db = client.db(dbName);
 
