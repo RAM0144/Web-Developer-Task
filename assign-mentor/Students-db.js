@@ -1,6 +1,6 @@
 import express from "express";
 
-import { db } from "../db-utils/mongodb-connection.js";
+import { db } from "./db-utils/mongodb-connection"; 
 
 const studentsDbRouter = express.Router();
 
