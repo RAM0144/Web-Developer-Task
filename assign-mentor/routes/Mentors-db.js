@@ -59,12 +59,11 @@ MentorDbRoutor.put("/:MentorId", async (req, res) => {
 //All students for a particular mentor
 MentorDbRoutor.get("/", async (req, res) => {
     try {
-        
-        const StuObj = Students.find((stu) => stu.id === stu)
+
         const Mentor = await collection.find({}, {projection: {_id: 0}}).toArray();
-         if (StuObj) {
+         
             res.send({ msg: "Info about students for a particular mentor!", Mentor });
-         }
+         
           
     } catch (error) {
         console.log(error);
