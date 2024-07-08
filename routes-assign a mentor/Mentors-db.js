@@ -1,6 +1,6 @@
 import express from "express";
 
-import { db } from "./db-utils/mongodb-connection";
+import { db } from "../db-utils/mongodb-connection.js";
 
 const MentorDbRoutor = express.Router();
 
@@ -26,7 +26,7 @@ MentorDbRoutor.post("/", async (req, res) => {
 // Get a Mentor
 MentorDbRoutor.get("/", async (req, res) => {
     try {
-        const Mentor = await collection.find({}, {projection: {_id: 0}}).toArray();
+        const Mentor = await collection.find({}, { projection: { _id: 0 } }).toArray();
         res.send({ msg: "Info About Mentor", Mentor });
     } catch (error) {
         console.log(error);
@@ -44,12 +44,12 @@ MentorDbRoutor.put("/:MentorId", async (req, res) => {
                 id: MentorId,
             },
             {
-                $set : updateInfo,
+                $set: updateInfo,
             },
-           
-    );
 
-      res.send({ msg: "Mentor Updated Successfully!" });   
+        );
+
+        res.send({ msg: "Mentor Updated Successfully!" });
     } catch (error) {
         console.log(error);
         res.status(500).send({ msg: "Internal Server Error" });
@@ -60,11 +60,11 @@ MentorDbRoutor.put("/:MentorId", async (req, res) => {
 MentorDbRoutor.get("/", async (req, res) => {
     try {
 
-        const Mentor = await collection.find({}, {projection: {_id: 0}}).toArray();
-         
-            res.send({ msg: "Info about students for a particular mentor!", Mentor });
-         
-          
+        const Mentor = await collection.find({}, { projection: { _id: 0 } }).toArray();
+
+        res.send({ msg: "Info about students for a particular mentor!", Mentor });
+
+
     } catch (error) {
         console.log(error);
         res.status(500).send({ msg: "Internal Server Error" });

@@ -5,7 +5,7 @@ const dbUrl = "localhost:27017";
 const dbName = "task";
 
 const localUrl = `mongodb://${dbUrl}`;
-const client  = new MongoClient(localUrl);
+const client = new MongoClient(localUrl);
 
 const db = client.db(dbName);
 
@@ -15,7 +15,7 @@ const connectToDb = async () => {
         console.log("DB Connected Successfully!");
     } catch (error) {
         console.log("Error Connecting the database", error);
-    process.exit(1);
+        process.exit(1);
     }
 };
 
